@@ -5,7 +5,7 @@ __pycache__/
 
 ### Backup from summary notes
 summary\ notes/**/*.backup
-
+summary_pdfs/
 
 
 # C extensions
