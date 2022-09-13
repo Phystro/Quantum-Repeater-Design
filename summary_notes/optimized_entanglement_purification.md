@@ -37,8 +37,10 @@ __`Note`__: pay attention to limitations imposed by working with finite hardware
 __`Observation`__: Many highly efficient purification schemes in the literature can reach perfect fidelities at high yield in the asymptotic regime. However, such theories neglect imperfections and size limitations of the purification hardware. The imperfections in the local gates and measurements are the limiting factor in real-world hardware.
 
 ### Purification of Bell pairs
+
 In purification protocols, Alice and Bob start by sharing a number of imperfect Bell-pairs which they perform local gates and measurements and communicate classically, they obtain a single pair of higher fidelity.
 
 ### Conclusions
+
 Performance aspects considered: `fidelity of purified Bell pair`, `success probability` and `circuit length`.
 

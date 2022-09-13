@@ -14,6 +14,7 @@ Main components of quantum repeaters: __`quantum memories`__, __`quantum entangl
 ---
 
 ### Development status
+
 In principle, quantum repeater can be used to make distributed quantum entanglement pair decay polynomially with channel length, as opposed to the normal exponential decay/attenuation.
 
 The main function of the quantum repeater is to extract the transmitted quantum state information, enhance the fidelity of the quantum state and transfer the measured quantum state to the next user.
@@ -34,6 +35,7 @@ Quantum memories are used to store entangled states at each node. They counter t
 
 
 ### Interesting Mentions 
+
 * https://journals.aps.org/pra/abstract/10.1103/PhysRevA.73.012332 - `Robust implementations of quantum repeaters
 `. Proposed a quantum repeater based on noise-free subspace, that preserves quantum states for longer.
 * https://arxiv.org/abs/0711.1831 - `A quantum repeater based on decoherence free subspaces`

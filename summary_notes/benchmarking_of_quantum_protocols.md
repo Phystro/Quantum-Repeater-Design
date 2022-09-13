@@ -12,11 +12,14 @@ Quantum network protocols offer new functionalities. However, they are not yet m
 ---
 
 #### Tools
+
 * NetSquid simulation platform - to evaluate the effect of various sources of noise on the performance of these protocols, considering different figures of merit.
 * *IBM Qiskit*
 
 ### Intro
+
 #### Benchmarking
+
 A major requirement in the dev of quantum protocols in the real world is the evaluation of their performance in various aspects such as security, required resources and scalability. __Such detailed analysis is requred to include different sources of imperfection in the practical implementation__.
 
 Benchmarking helps us compare different protocols with the same functinality proposed in the literature, e.g. different quantum token protocols.

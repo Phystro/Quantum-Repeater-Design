@@ -28,8 +28,8 @@ Limitations of quantum repeaters:
 * Imperfections of quantum operations involved
 * Imperfections of interconnecting quantum channels
 
-
 #### Procedure
+
 Stations: 0, 1, 2, 3
 Produce 2 entangled pairs:
 
@@ -46,8 +46,8 @@ Entanglement is swapped from "0-1" and "2-3" to "0-3" and "1-2".
 
 Using linear optics allows distinguishing 2 out of 4 Bell states and provides maximum fidelity of 1.
 
-
 ### Experiment
+
 Utilized a 143 km horizontal free-space link.
 
 Individual polarization-entangled photon pairs generated via Spontaneous Parametric Down-Conversion (SPDC) in a nonlinear $\beta$-barium borate (BBO) crystal.
