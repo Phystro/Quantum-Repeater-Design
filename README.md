@@ -6,7 +6,18 @@ We assume that the repeater network operates on optical fibre communication link
 
 ## Contents
 
-* [Summary PDFs](summary_pdfs/README.md)
-* [Summary Notes](summary_notes/README.md)
-* [Quantum Repeater Components](src/components/README.md)
-* [Quantum Repeater Implementation](src/qrepeater/README.md)
+**[1. Quantum Repeater Components](src/components/README.md)**
+
+* [1.1. Quantum Repeater Components](src/components/README.md)
+
+**[2. Quantum Repeater](src/qrepeater/README.md)**
+
+* [2.1. Quantum Repeater Implementation](src/qrepeater/README.md)
+
+**[A. Appendix](appendix/README.md)**
+
+* [A.1. Summary Notes](appendix/summary_notes/README.md)
+* [A.2. Summary PDFs](appendix/summary_pdfs/README.md)
+* [A.3. Resources/Links](resources/README.md)
+
+----
