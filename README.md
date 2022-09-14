@@ -21,3 +21,15 @@ __[A. Appendix](appendix/README.md)__
 * [A.3. Resources/Links](resources/README.md)
 
 ----
+
+## Objectives
+
+### Main Objective
+
+To design and implement a modern quantum repeater infrastructure for future quantum communication technologies and teleportation application.
+
+### Specific Objectives
+
+* [ ] To design and implement a complete quantum circuit of a quantum repeater whose executions emulate its expected workings and behaviour in a real world quantum network.
+* [ ] Explore various purification strategies to identify the optimum strategy.
+* [ ] Perform optimizations on the purification circuits and studying the effects of various purification protocols on the overall purification optimization scheme.
