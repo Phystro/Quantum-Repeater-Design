@@ -2,7 +2,7 @@
 
 Reference articles read and summary made in contribution to the literature review.
 
-## Contents
+## __Contents__
 
 * [3 Quantum repeater advances in 2021](../summary_notes/3_quantum_advances_in_2021.md)
 * [Benchmarking of Quantum Protocols](../summary_notes/benchmarking_of_quantum_protocols.md)
