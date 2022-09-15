@@ -4,11 +4,15 @@ With a focus on Heralded Quantum Purification (HEP) protocols
 
 We assume that the repeater network operates on optical fibre communication links, though free-space satellite to ground links also employ the same concepts of a quantum repeater.
 
-## __Contents__
+## __Table of Contents__
+
+__[i. Objectives](#objectives)__
 
 __[1. Quantum Repeater Components](src/components/README.md)__
 
-* [1.1. Quantum Repeater Components](src/components/README.md)
+* [1.1. Bell States](src/components/bell_states/README.md)
+* [1.2. Entanglement Swapping](src/components/entanglement_swapping/README.md)
+* [1.3. Quantum Teleportation](src/components/teleportation/README.md)
 
 __[2. Quantum Repeater](src/qrepeater/README.md)__
 
