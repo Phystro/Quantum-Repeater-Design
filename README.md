@@ -1,12 +1,10 @@
 # Quantum-Repeater-Design
 
-With a focus on Heralded Quantum Purification (HEP) protocols
-
-We assume that the repeater network operates on optical fibre communication links, though free-space satellite to ground links also employ the same concepts of a quantum repeater.
-
 ## __Table of Contents__
 
-__[i. Objectives](#objectives)__
+__[i. Note](#note)__
+
+__[ii. Objectives](#objectives)__
 
 __[1. Quantum Repeater Components](src/components/README.md)__
 
@@ -25,6 +23,12 @@ __[A. Appendix](appendix/README.md)__
 * [A.3. Resources/Links](resources/README.md)
 
 ----
+
+## Note
+
+With a focus on Heralded Quantum Purification (HEP) protocols
+
+We assume that the repeater network operates on optical fibre communication links, though free-space satellite to ground links also employ the same concepts of a quantum repeater.
 
 ## Objectives
 
