@@ -35,6 +35,14 @@ If measurement results are different e.g. $(0, 1)$ or $(1, 0)$; purification pro
 
 Protocol is `heralded`. Each node gets to know of the success status using a classical channel. Likely to be a performance bottleneck.
 
+Quantum circuit design 2 Bell pairs - implementing Bennett's protocol.
+
+![purification deutsch](../entanglement_purification/images/purification_bennett.png)
+
+Result of the measurement in Bennett's protocol for the above circuit. Results $(0, 0)$ indicate successfull purification.
+
+![purification deutsch results](../entanglement_purification/images/purification_bennett_results.png)
+
 ### __Deutsch's Protocol__ - [Quantum Privacy Amplification and the Security of Quantum Cryptography over Noisy Channels](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.77.2818)
 
 Addresses shortcomings of `Bennett's Protocol`.
@@ -49,8 +57,6 @@ Quantum circuit design 2 Bell pairs - implementing Deutsch's protocol.
 
 ![purification deutsch](../entanglement_purification/images/purification_deutsch.png)
 
-Result of the measurement in Deutsch's protocol for the above circuit.
+Result of the measurement in Deutsch's protocol for the above circuit. Results $(0, 0)$ indicate successfull purification.
 
 ![purification deutsch results](../entanglement_purification/images/purification_deutsch_results.png)
-
-Results $(0, 0)$ indicate successfull purification.
