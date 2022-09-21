@@ -14,10 +14,6 @@ The full circuit is as seen below. The [quantum circuit code](../teleportation/t
 
 IBM hardware does not currently support instructions after measurements.
 
-
 The full circuit is as seen below. The [quantum circuit code](../teleportation/teleportation_qubit_real.ipynb)
+
 ![teleportation_qubit_real](../../components/teleportation/images/teleportation_qubit_real.png)
-
-## Teleportation of Entanglement
-
-Demonstrating and verifying the teleportation of an entangled pair using IBM Qiskit simulation.
