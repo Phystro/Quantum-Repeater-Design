@@ -36,3 +36,15 @@ $4$ represents Bob's end node.
 Performing Bell State Measurement between qubits in $2$ and $3$, projects the qubits in $1$ and $4$ into the entangled state $\ket{\Phi^+}_{14}$ up to a Pauli correction operation $\{I, Z, X, Y\}$ that depends on the BSM result.
 
 Results of the BSM are sent to Bob via a classical channel `(Teleportation protocol)`. The correction operation is the performed by Bob. Thus entanglement has been successfully teleported between Alice and Bob.
+
+## Entanglement Swapping of Entangled States
+
+Demonstrating and verifying the swapping of an entangled pair using IBM Qiskit simulation.
+
+The full circuit is as seen below. The [quantum circuit code](../entanglement_swapping/entanglement_swapping.ipynb)
+
+![entanglemnt swapping](../entanglement_swapping/images/entanglement_swapping.png)
+
+The verification results of the entanglement swapping protocol:
+
+![entanglement swapping verification](../entanglement_swapping/images/entanglement_swapping_verification.png)
