@@ -44,9 +44,9 @@ To design and implement a modern quantum repeater infrastructure for future quan
   * [x] Bell states measurement (BSM) component
   * [x] Entanglement swapping component
     * [x] Quantum teleportation component
-  * [ ] Entanglement purification component
-    * [ ] Bennett's protocol
-    * [ ] Deutsch's protocol
+  * [x] Entanglement purification component
+    * [x] Bennett's protocol
+    * [x] Deutsch's protocol
 * [ ] Explore various purification strategies to identify the optimum strategy.
   * [ ] After generation/production of Bell Pairs?
   * [ ] After every swap?
