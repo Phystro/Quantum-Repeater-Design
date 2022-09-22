@@ -13,3 +13,13 @@ Ref: [Design of a Quantum-Repeater using Quantum Circuits and Benchmarking Its P
 3. Entanglement swapping
     - two adjacent nodes with high fidelity qubits undergo swapping to produce a longer link.
 4. If the destination is yet; the operatiosn from Step $2$ and Step $3$ are repeated sequentially until destination node and sender's node are linked.
+
+## Quantum Repeater Architecture
+
+Below os the circuit implementation of the quantum repeater circuit architecture.
+
+The [quantum circuit code](../qrepeater/quantum_repeater.ipynb).
+
+Node: the circuit below is yet to include purification protocol.
+
+![quantum repeater](../qrepeater/images/quantum_repeater.png)

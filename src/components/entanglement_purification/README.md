@@ -1,5 +1,14 @@
 # Entanglement Purification
 
+## __Table of Contents__
+
+__[1. Optimized Entanglement Purification](#optimized-entanglement-purification)__
+
+__[2. Design of a Quantum-Repeater using Quantum Circuits and Benchmarking Its Performance on an IBM Quantum Computer](#design-of-a-quantum-repeater-using-quantum-circuits-and-benchmarking-its-performance-on-an-ibm-quantum-computer)__
+
+* [2.1. Bennett's Protocol](#bennetts-protocol---purification-of-noisy-entanglement-and-faithful-teleportation-via-noisy-channels)
+* [2.2 Deutsch's Protocol](#deutschs-protocol---quantum-privacy-amplification-and-the-security-of-quantum-cryptography-over-noisy-channels)
+
 ## __[Optimized Entanglement Purification](https://quantum-journal.org/papers/q-2019-02-18-123/)__
 
 Infidelity of created Bell pairs is on the order of 10% while noise due to local gates and measurements can be much lower than 1%.
@@ -26,6 +35,14 @@ If measurement results are different e.g. $(0, 1)$ or $(1, 0)$; purification pro
 
 Protocol is `heralded`. Each node gets to know of the success status using a classical channel. Likely to be a performance bottleneck.
 
+Quantum circuit design 2 Bell pairs - implementing Bennett's protocol.
+
+![purification deutsch](../entanglement_purification/images/purification_bennett.png)
+
+Result of the measurement in Bennett's protocol for the above circuit. Results $(0, 0)$ indicate successfull purification.
+
+![purification deutsch results](../entanglement_purification/images/purification_bennett_results.png)
+
 ### __Deutsch's Protocol__ - [Quantum Privacy Amplification and the Security of Quantum Cryptography over Noisy Channels](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.77.2818)
 
 Addresses shortcomings of `Bennett's Protocol`.
@@ -35,3 +52,11 @@ We reason using a Bloch Sphere. A qubit can be represented as a unit vector in 3
 Using rotational unitary operations e.g. $R_x(\theta)$ which rotates a Bloch vector about x-axis by an angle $\theta$.
 
 In this protocol, Alice performs rotation operation $R_x(\pi/2)$ on her qubits, while Bob performs the inverse rotation operation $R_x(-\pi/2)$. There after the two parties can perform CNOT operations as in Bennett's protocol, and proceeding with all other operations as in Bennett's protocol.
+
+Quantum circuit design 2 Bell pairs - implementing Deutsch's protocol.
+
+![purification deutsch](../entanglement_purification/images/purification_deutsch.png)
+
+Result of the measurement in Deutsch's protocol for the above circuit. Results $(0, 0)$ indicate successfull purification.
+
+![purification deutsch results](../entanglement_purification/images/purification_deutsch_results.png)
