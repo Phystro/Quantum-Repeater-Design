@@ -20,6 +20,6 @@ Below os the circuit implementation of the quantum repeater circuit architecture
 
 The [quantum circuit code](../qrepeater/quantum_repeater.ipynb).
 
-Node: the circuit below is yet to include purification protocol.
+Node: the circuit below implements Deutsch's purification protocol.
 
-![quantum repeater](../qrepeater/images/quantum_repeater.png)
+![quantum repeater](../qrepeater/images/quantum_repeater_dpurification.png)
