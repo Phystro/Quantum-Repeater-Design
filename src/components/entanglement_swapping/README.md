@@ -48,3 +48,7 @@ The full circuit is as seen below. The [quantum circuit code](../entanglement_sw
 The verification results of the entanglement swapping protocol:
 
 ![entanglement swapping verification](../entanglement_swapping/images/entanglement_swapping_verification.png)
+
+The measurement results of the quantum entanglement swapping protocol:
+
+![entanglement swapping measurement](../entanglement_swapping/images/entanglement_swapping_measurement.png)

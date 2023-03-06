@@ -1,0 +1,593 @@
+\documentclass[a4 paper, 11pt,twoside]{article}
+\usepackage{fullpage}                           % Makes the page margins smaller to a predefined one.
+\usepackage[lmargin=0.6in,rmargin=0.6in,tmargin=0.6in,headsep=.2in]{geometry}
+\usepackage{graphicx}
+\usepackage{forloop}
+\usepackage{etoolbox}
+\usepackage{calc}
+\usepackage{wrapfig,lipsum,booktabs} % To produce the empty space on the left
+\usepackage{xtab} % To produce the empty space on the left
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{sectsty}% http://ctan.org/pkg/sectsty
+\allsectionsfont{\color{Brown}}
+\makeatletter
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+{\csname the#1\endcsname\;}%  default
+{\csname #1@cntformat\endcsname}% individual control
+}
+\def\section@cntformat{\thesection.\;} % Dot after the section number
+\def\subsection@cntformat{\thesubsection.\;} % Dot after the subsection number
+\makeatother
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=black,
+    citecolor = black}
+
+\urlstyle{same}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%  ---------------   Normal Headers  ------------------
+\fancyhf{} % clear all fields
+\fancyhead[LE,RO]{\textsf{W. S. Khedr}}
+%\fancyhead[C]{Paper Title: Running Title}
+\fancyfoot[LO,RE]{\includegraphics[scale=0.12]{index1.png}}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{1pt} % to remove line on header
+\renewcommand{\footrulewidth}{1pt} % to remove line on footer
+% ------------------ Header for first page -----------------
+\fancypagestyle{first}{%
+  \fancyhf{}% clear all header and footer fields
+  \fancyhead[L]{\includegraphics[scale=0.8]{index.jpeg}}%
+  \fancyfoot[L]{{\footnotesize \textsf{DOI: \href{10.4236/***.2022.*****}{\color{blue}\uline{10.4236/***.2022.*****}} $\;$**** **, 2022}}}%
+  \fancyhead[R]{{\bf\small \textsf{Journal of ****, 2022, *, *-*}}\\
+\href{http://www.scirp.org/journal/***}{\color{blue}\uline{\textsf{http://www.scirp.org/journal/***}}}\\
+\textsf{ISSN Online:****-****}\\
+\textsf{ISSN Print:****-****}}%
+  \renewcommand{\headrulewidth}{0pt}% to remove line on header
+  \renewcommand{\footrulewidth}{0pt}% to remove line on footer
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Author Packages %%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
+ \usepackage[retainorgcmds]{IEEEtrantools}
+ \usepackage{makeidx,epsfig,lscape}
+ \usepackage{xcolor,pict2e}
+\usepackage{upgreek}
+%%%%%%%%%%%%%%% Author Commands %%%%%%%%%%%%%%%%
+\newcommand{\Bf}[1]{{\bf{#1}}}
+\newcommand{\V}{{\bf{v}}}
+\newcommand{\X}{{\bf{x}}}
+\newcommand{\p}{{\bf{p}}}
+\newcommand{\Y}{{\bf{y}}}
+\newcommand{\U}{{\bf{u}}}
+\newcommand{\G}{\upomega}
+\newcommand{\0}{\Bf{0}}
+\newcommand{\F}{{\bf{f}}}
+\newcommand{\RR}{\mathbb{R}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{definition}
+\newtheorem*{rem}{Remark}
+\newtheorem*{rem1}{Remark*}
+\newtheorem*{note}{Note}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{Claim}{Claim}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{first}
+\vspace*{3cm}
+%%%%%%%%%  TITLE %%%%%%%%%%%%%%%%%
+{\noindent\huge\bf Classical Fundamental Unique Solution for the Incompressible Navier-Stokes Equation in $\mathbb{R}^N$}\\[1cm]
+%%%%%%%%%%%%%%%%  Author Data %%%%%%%%%%%%%%%%%%%
+{\bf\large Waleed S. Khedr}\\[0.5cm]
+Independent Researcher, Cairo, Egypt\\
+Email: waleedshawki@yahoo.com\\
+%%%%%%%%%%%   The Information Bar on the Left %%%%%%%%%%%
+\begin{wraptable}{l}{5.1cm}
+{\footnotesize
+\begin{xtabular*}{0.3\textwidth}{p{5cm}}
+\noindent{\bf How to cite this paper:} Khedr, W. S. (2022) Classical Fundamental Unique Solution for the Incompressible Navier-Stokes Equation in $\mathbb{R}^N$, Journal of ***, {\bf *},    *-*.\\
+\url{http://dx.doi.org/10.4236/***.2022.*****}\\
+{\bf Received: **** **, ***}\\
+{\bf Accepted: **** **, ***}\\
+{\bf Published: **** **, ***}\\
+Copyright \copyright$\;$2022 by author(s) and Scientific Research Publishing Inc.\\
+This work is licensed under the Creative Commons Attribution International License (CC BY 4.0).\\
+\url{http://creativecommons.org/licenses/by/4.0/}\\
+\includegraphics[width=2.5cm,height=0.72cm]{ccby40.png}$\;$\includegraphics[width=2.5cm,height=0.75cm]{openaccess.jpg}\\
+%%%%%%%%%%%%%%%%%%% IMPORTANT FOR AUTHORS %%%%%%%%
+% Copy and paste the following line depending on the number of full pages in your document (i.e. before using the template)
+{\color{white}\lipsum[1-60]}% If the number of pages is less than 15
+%{\color{white}\lipsum[1-60]}% uncomment if the number of pages is more than 15 and less than 30
+%{\color{white}\lipsum[1-60]}% uncomment if the number of pages is more than 30 and less than 45
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{xtabular*}
+}
+\end{wraptable}
+%%%%%%%%%%%%%%%  The Abstract and Keywords %%%%%%%%%%%%%%%%%%%%%%%%
+{\color{Brown}\rule{0.7\textwidth}{2pt}}\\[0.2cm]
+{\color{Brown}\bf\large Abstract}\\
+We present a class of non-convective classical solutions for the multidimensional incompressible Navier-Stokes equation. We validate such class as a representative for solutions of the equation in bounded and unbounded domains by investigating the compatibility condition on the boundary, the smoothness of the solution inside the domain and the boundedness of the energy. Eventually, we show that this solution is indeed the unique classical solution for the problem given some appropriate and convenient assumptions on the data.
+\vspace{0.5cm}\\
+{\color{Brown}\bf\large Keywords}\\
+Fluid Mechanics; Navier-Stokes Equation; Fundamental Solutions.
+\vspace{0cm}\\
+{\color{Brown}\rule{0.7\textwidth}{2pt}}
+%%%%%%%%%%%%%%%%%  The Document Starts Here %%%%%%%%%%%%%%
+\section{Introduction}
+
+In this article a well known model is to be investigated that represents the flow of an incompressible fluid in both bounded and unbounded domains of $\mathbb{R}^N$. This model is commonly called the Navier-Stokes equation following the French engineer Navier who was the first to propose this model. This model was investigated later by Poisson and de Saint Venant. However, Stokes was the one who justified the model based on the principles of continuum mechanics. By advent of 1930 the interest in this model increased significantly and outstanding results were obtained by Leray, Hopf, Ladyzhenskaya and Finn.
+
+This equation describes the flow of what is so called the Newtonian fluid. These are the fluids that exhibit shearing stress due to the presence of frictional forces. Frictional forces within fluids are consequences of its viscosity. Also, the gradient of the velocity represents a measure for the relative motion of the fluid's particles. Moreover, deformation of fluids is commonly associated with internal and external body forces; the internal force is what we refer to as the pressure of the fluid. The derivation of the Navier-Stokes equation is a natural application of Newton's second law of motion, the balance of momentum and the mass conservation, which eventually leads to the definition of the Cauchy stress tensor. In Newtonian fluids this stress tensor is a function in the pressure, the viscosity and the gradient of the velocity. For a convenient physical background about the basics of continuum mechanics and how we derive the Navier-Stokes equation we propose \cite{gurtin, kambeb}. Also a very interesting work from a physical point of view can be found in \cite{kambe1,kambe2}. In particular, the work of Kambe in \cite{kambe2} was the source of inspiration for the ideas in this article.
+
+This model poses a serious challenge when it comes to proving the existence and the smoothness of its solution. This problem was perfectly addressed by Ladyzhenskaya in two dimensional spaces among many other issues in higher dimensional spaces \cite{ladyF1}. However, a decisive answer in the three dimensional space or higher remains unavailable. It is almost impossible to enlist all the results obtained for this equation. Therefore, we suggest for the interested reader to review the monographs \cite{ladyF1,galdi,majda} and the references within for much more details.
+
+Recently, the interest in this equation is not fading at all. There are persistent efforts to clarify the properties of the solution, especially its smoothness. Among many respectful results, we mention the outstanding analysis by Tao in \cite{tao}, the work of Constantin in \cite{consta1,consta2, consta3}. A very interesting result for partial regularity of suitable weak solutions was obtained by Caffarelli in \cite{caf}.
+
+In this article the idea is simple. {\bf A} class of possible solutions is proposed and then it is proved that it indeed represents {\bf the} unique classical solution of the problem. Most of the results are obtained by considering standard theories of partial differential equations. Some of the results in the monograph \cite{majda} are also used repeatedly. In the next section a statement of the problem is introduced along with some definitions, notations and employed functional spaces. Afterwards, the proofs of the main results are established.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statement of the problem}
+
+The spatial domain is $\Omega$ which is either a bounded region in $\mathbb{R}^N$ or the whole of $\mathbb{R}^N$ and this point shall be specified explicitly. For the sake of conciseness, the notation $\Omega_t$ is used to denote $\Omega_t=\{(\X,t):\X\in\Omega, t\in(0,\infty)\}$. Clearly, such notation should not be taken to imply a moving boundary. The main model equation is in the form
+\begin{equation}
+\left\{
+ \begin{IEEEeqnarraybox}[
+ \IEEEeqnarraystrutmode
+ \IEEEeqnarraystrutsizeadd{5pt}
+ {2pt}
+ ][c]{l}
+ \Bf{v}_{t}+(\Bf{v}\cdot\nabla)\Bf{v}=\mu\Delta \Bf{v}-\nabla p+\F\quad\text{in}\quad\Omega_{t},
+ \\
+ \upomega=\nabla\times\V\quad\text{in}\quad\Omega_t,
+ \\
+ \Bf{v}(\Bf{x},0)=\Bf{v}_0(\Bf{x})\quad\text{and}\quad\upomega_0(\X)=\nabla\times\V_0(\X)\quad\text{in}\quad\Omega,
+ \\
+ \Bf{v}(\Bf{x},t)=\V^*(\X_{N-1},t)\quad\text{on}\quad\partial\Omega_t,
+ \\
+ \nabla\cdot \Bf{v}=\nabla\cdot\upomega=0\quad\text{in}\quad\overline{\Omega}_t
+ \end{IEEEeqnarraybox}
+\right.
+\label{vmodel}
+\end{equation}
+where the last equation in the above model is what many authors commonly refer to as the {\bf incompressibility condition} or the {\bf solenoidal condition}. The first term in the first equation is the acceleration of the fluid's flow in time, the second is the convective term that represents the acceleration of the flow in space, the third represents the diffusion scaled by the kinematic viscosity constant $\mu$, the fourth is the pressure, and the last one represents the total of the external body forces. The initial profile is denoted by $\V_0$ and the boundary datum is denoted by $\V^*$. The solution $\Bf{v}$ is the vector field representing the velocity of the flow in each direction, and its rotation $\upomega$ is the vorticity. Note that $\nabla\cdot\upomega=0$ in $\overline{\Omega}_t$ by compatibility.
+
+The well known Lebesgue spaces $L^q(\Omega)$ will be used repeatedly to represent the functions with bounded mean of order $q$. The Sobolev space $H^m(\Omega)$ is used to represent functions with bounded derivatives such that for a vector field $\V=\{v_1,\dots,v_N\}$ {\color{black}one has} $\partial^{|\alpha|}v_i\in L^2(\Omega)$ for every $|\alpha|=1,\dots,m$ and $i=1,\dots,N$. This motivates the usage of the space $V^m(\Omega)$, which is a well known space of functions in the theory of incompressible fluids as a representative for divergence free (solenoidal) bounded vector fields such that $V^m(\Omega)=\{\V\in H^m(\Omega):\nabla\cdot\V=0\;\text{in} \;\Omega\}$.
+
+By laws of classical mechanics, the energy generated by a moving object is proportional to the square of its velocity. Hence, the energy $E(t)$ generated by the flow $\V$ is defined as follows
+\begin{equation}
+E(t)=\int_\Omega|\V(\X,t)|^2d\X.
+\label{energyID}
+\end{equation}
+Recall that the above integral represents the norm of $\V$ in the Lebesgue space $L^2(\Omega)$. The smoothness of $\V_0(\X)$ is such that
+\begin{equation}
+\V_0(\X)\in\Bf{C}^2(\overline{\Omega})\cap V^{N+2}(\Omega).
+\label{initialdata}
+\end{equation}
+The smoothness of the boundary datum $\V^*(\X_{N-1},t)$ is such that
+\begin{equation}
+\V^*(\X_{N-1},t)\in\Bf{C}^\infty(\partial\Omega_t)\quad\text{and}\quad \V^*(\cdot,t)\sim t^{-K^*}\quad\text{for any}\;K^*>1.
+\label{bounddata}
+\end{equation}
+Finally, the forcing term $\F$ is smooth in space and time such that
+\begin{equation}
+\F(\X,t)\in\Bf{C}^1([0,\infty]; \Bf{C}^1(\overline{\Omega})\cap {\color{black}H^3}(\Omega))\quad\text{and}\; \F(\cdot,t)\sim t^{-K}\;\text{for any}\;K>0.
+\label{forcedata}
+\end{equation}
+
+Note that the intersections in the above conditions are not really required in the case of bounded domain since boundedness of the domain and continuity of the functions are enough to imply boundedness in the sense of the mean. However, these requirements are of significant importance in the case of unbounded domain as will be shown later.
+
+The target is to define a class of possible solutions to Model Equation \eqref{vmodel} from which $\Bf{v}$, $\upomega$ and $p$ can be concluded. Once $\V$ is obtained, then $p$ can easily be recovered from the main model. The validity of this solution as a meaningful physical solution will be investigated when inserted in the main model. A meaningful solution is a unique and smooth solution that vanishes as $t\rightarrow\infty$, and in the case of unbounded domain it vanishes as $|\X|\rightarrow\infty$ as well.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rem}
+The $\Bf{curl}$ operator or the rotation of a vector field has a physical meaning only in three dimensional space. However, it will be used in $\mathbb{R}^N$ for the sake of generality. Most of the results depend on the $\Bf{curl}$ operator in the sense of a differential operator without direct exposure to its definition. Note that the main interest is to find the velocity, which means that any use of the rotation, in spite of its significance in this work, is nothing more than a transient step. It can always be assumed that the space is three dimensional when needed, and a generalization becomes possible by reverting back to the results of the velocity. In particular, some of the vorticity ideas introduced in \cite{majda} are adopted in this study.
+\end{rem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Main results}
+In this section a class of possible solutions is proposed and the insertion of these solutions in the main model is investigated to check where they will lead to. This is initiated by the statement of the following claim.
+
+\begin{Claim}
+The unique solution of Model Equation \eqref{vmodel} is in the form $\V(\X,t)=\psi(\X,t)\U(t)$ where $\psi:\mathbb{R}^N\times\mathbb{R}\rightarrow\mathbb{R}$ is a scalar field and $\Bf{u}=(u_1(t),\dots,u_N(t))$ is a vector field such that, at least, $\psi(\X,t)\in\Bf{C}^2(\overline{\Omega}_t)$ and $\U\in\Bf{C}(\mathbb{R})$.
+\label{claim1}
+\end{Claim}
+
+An important question in the theory of Navier-Stokes equation is the ability to verify the compatibility condition on the boundary with minimum restrictions on the flux passing through the boundary especially if $\partial\Omega$ is divided into several parts \cite[pp. 4-8]{galdi}. This condition is a natural consequence of the incompressibility of the flow. Hence, it takes the form
+\begin{equation}
+\int_{\partial\Omega}(\Bf{v}\cdot\vec{\Bf{n}})d\X_{N-1}=0,
+\label{boundarycond}
+\end{equation}
+where $\vec{\Bf{n}}$ is the outward unit vector normal to $\partial\Omega$. This motivates the introduction of the following lemma.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{lemma}[Tangential flow]
+Let $\Omega$ be an arbitrary domain, $\psi(\X,t):\mathbb{R}^N\times\mathbb{R}\rightarrow\mathbb{R}$ be any scalar field such that $\psi\in\Bf{C}^1(\overline{\Omega})$ and let $\U(t)=(u_1(t),\dots,u_N(t))$ be any vector field independent of $\X$. The Compatibility Condition \eqref{boundarycond} is satisfied for every divergence free vector field $\V(\X,t):\mathbb{R}^N\times\mathbb{R}\rightarrow\mathbb{R}^N$ in the form $\V=\psi(\X,t)\U(t)$. In particular, on every part of $\partial\Omega$, $\V$ and its rotation $\upomega$ are tangents to $\partial\Omega$ such that $\V\cdot\vec{\Bf{n}}=\upomega\cdot\vec{\Bf{n}}=0$.
+\label{compcond}
+\end{lemma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+Given that $\V=\psi(\X,t)\U(t)$ is divergence free such that $\nabla\cdot\V=0$ leads to
+\begin{equation}
+\sum_{i=1}^N\frac{\partial\psi}{\partial x_i}u_i=0.
+\label{ID}
+\end{equation}
+{\color{black}Identity \eqref{ID} can be used} to deduce that $(\V\cdot\nabla)\V=(\nabla\V)\V=\0$. {\color{black}Upon dot product by $\V$ one obtains}
+\begin{equation}
+0=(\nabla\V)\V\cdot\V=(\nabla\V)^{\rm{T}}\V\cdot\V=\frac{1}{2}\V\cdot\nabla|\V|^2=\frac{1}{2}\nabla\cdot(|\V|^2\V),
+\label{ID0}
+\end{equation}
+{\color{black}and} when integrated over $\Omega$ for any $t>0$ provides
+\begin{equation}
+0=\int_{\Omega}\nabla\cdot(|\V|^2\V)d\X=\int_{\partial\Omega}(|\V|^2\V\cdot\vec{\Bf{n}})d\X_{N-1},
+\label{ID1}
+\end{equation}
+which is a true identity for every arbitrary $\Omega$, $\psi$ and $\U$ and for every $t>0$. On the other hand, given that $(\V\cdot\nabla)\V=0$, {\color{black}one can use} the identity
+\begin{equation}
+\frac{1}{2}\nabla|\V|^2=(\V\cdot\nabla)\V+\V\times\nabla\times\V=\V\times\upomega,
+\label{ID*}
+\end{equation}
+where $\upomega=\nabla\times\V$, which upon dot product by $\upomega$ provides
+\[
+\nabla\cdot(|\V|^2\upomega)=0,
+\]
+where we used also that $\nabla\cdot\upomega=0$. Integrate over $\Omega$ for any $t>0$ to get
+\begin{equation}
+0=\int_{\Omega}\nabla\cdot(|\V|^2\upomega)d\X=\int_{\partial\Omega}(|\V|^2\upomega\cdot\vec{\Bf{n}})d\X_{N-1},
+\label{ID2}
+\end{equation}
+which is true for arbitrary $\Omega$, $\psi$ and $\U$. Now, since $\nabla\cdot\V=0$ {\color{black}one also has}
+\begin{equation}
+0=\int_{\Omega}(\nabla\cdot\V) d\X=\int_{\partial\Omega}(\V\cdot\vec{\Bf{n}})d\X_{N-1}.
+\label{ID3}
+\end{equation}
+Identity \eqref{ID*} implies that $\nabla|\V|^2$ is orthogonal to the space spanned by $\V$ and $\upomega$. {\color{black}Combine} Identities \eqref{ID1}, \eqref{ID2} and \eqref{ID3}, and {\color{black}exclude} the cases $|\V|=1$ and $|\V|=0$ by the arbitrariness of the choice to deduce that it is necessary that $\V\cdot\vec{\Bf{n}}=0$; that is to say $\V$ is tangential to every part of $\partial\Omega$.
+
+{\color{black}It can also be deduced} that either $\V=\upomega$ on every part of $\partial\Omega$ (this actually means $\V=\upomega=0$ on $\partial\Omega$), or $\upomega\cdot\vec{\Bf{n}}=0$ on every part of $\partial\Omega$. Both cases imply that $\upomega\cdot\vec{\Bf{n}}=0$ on every part of $\partial\Omega$. Hence, both $\V$ and $\upomega$ are tangential to the boundary.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rem}
+As pointed out, the question of verifying the Compatibility Condition \eqref{compcond} on the boundary of $\Omega$ is an important open question in the mathematical theory of Navier-Stokes equation. Some results were obtained to justify the validity of such compatibility under certain restrictions on the flux of the flow in terms of the viscosity of the fluid, for details on this issue refer to \cite{galdi}. In the present case, the compatibility is naturally achieved given, of course, that the solution of Model Equation \eqref{vmodel} is indeed in the form proposed in {\it Claim \ref{claim1}}. This shall be verified by the statements of the following theorems.
+\end{rem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{theorem}[Bounded Domain]
+Let $\Omega\subset\mathbb{R}^N$ be a bounded domain with sufficiently smooth boundaries $\partial\Omega$ and let $\Omega_t=\Omega\times(0,\infty)$. Suppose $\Bf{v}_0(\Bf{x})$, $\V^*(\X_{N-1},t)$ and $\F(\X,t)$ satisfy {\color{black}Conditions} \eqref{initialdata}, \eqref{bounddata} and \eqref{forcedata} respectively. If $\V(\X,t)$ is in the form proposed in {\it Claim \ref{claim1}}, then Model Equation \eqref{vmodel} has a classical solution $(\V,\upomega,p)$ with bounded energy $E(t)$ such that $\Bf{v}(\Bf{x},t)\in \Bf{C}^\infty(\overline{\Omega}_t)$, $\upomega{\color{black}(\X,t)}\in\Bf{C}^\infty(\overline{\Omega}_t)$ and $p{\color{black}(\X,t)}\in C^1([0,\infty];C^3(\overline{\Omega}))$. In particular, the exact solution is given by solving the following system
+\begin{equation}
+\left\{
+ \begin{IEEEeqnarraybox}[
+ \IEEEeqnarraystrutmode
+ \IEEEeqnarraystrutsizeadd{5pt}
+ {2pt}
+ ][c]{l}
+ \left.
+  \begin{IEEEeqnarraybox}[
+ \IEEEeqnarraystrutmode
+ \IEEEeqnarraystrutsizeadd{5pt}
+ {2pt}
+ ][c]{l}
+ \upomega_{t}=\mu\Delta \upomega+\nabla\times\F
+ \\
+ \Delta\V=-\nabla\times\upomega
+ \\
+ \Delta p=\nabla\cdot\F
+ \end{IEEEeqnarraybox}
+ \right\}\quad\text{in}\quad\Omega_{t},
+ \\
+ \left.
+  \begin{IEEEeqnarraybox}[
+ \IEEEeqnarraystrutmode
+ \IEEEeqnarraystrutsizeadd{5pt}
+ {2pt}
+ ][c]{l}
+ \V(\X,t)=\V^*(\X_{N-1},t)
+ \\
+ \upomega(\X,t)=\nabla\times\V^*(\X_{N-1},t)
+ \end{IEEEeqnarraybox}
+ \right\}\quad\text{on}\quad\partial\Omega_t,
+  \\
+ \upomega(\X,0)=\upomega_0(\X)=\nabla\times\V_0(\X)\quad\text{in}\quad\overline{\Omega},
+ \\
+ \nabla\cdot \Bf{v}=\nabla\cdot\upomega=0\quad\text{in}\quad\overline{\Omega}_t
+ \end{IEEEeqnarraybox}
+\right.
+\label{bsol1}
+\end{equation}
+where $\nabla p$ can be defined uniquely in terms of the values of $\V$ and $\F$ on the boundary. Moreover, if $\F\in \Bf{C}^\infty(\overline{\Omega}_t)$ then $p\in C^\infty(\overline{\Omega}_t)$.
+\label{mainthmb}
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+The proof is quite simple and it depends mostly on classical results and the standard theory of linear parabolic and elliptic equations of second order. If $\V=\psi(\X,t)\U(t)$, then by virtue of Identity \eqref{ID} one has $(\V\cdot\nabla)\V=0$. Hence, the main equation takes the form
+\begin{equation}
+\V_t=\mu\Delta\V-\nabla p+\F.
+\label{step1}
+\end{equation}
+Apply the divergence operator to get
+\begin{equation}
+\Delta p=\nabla\cdot\F,
+\label{step2}
+\end{equation}
+where the incompressibility condition $\nabla\cdot\V=0$ is used. By the standard theory of elliptic equations, if $\F$ satisfies Condition \eqref{forcedata}, then $p\in C^1([0,\infty];C^3(\overline{\Omega}))$. However, if $\F\in \Bf{C}^\infty(\overline{\Omega}_t)$, then $p$ is actually $C^\infty(\overline{\Omega}_t)$, for details on such equation see \cite[pp. 326-343]{evans}. This concludes one part of System \eqref{bsol1}, however, a further discussion on a unique definition of $p$ will be introduced at the end of this proof.
+
+Now, revert to Equation \eqref{step1} and apply the \Bf{curl} operator to get
+\begin{equation}
+\upomega_t=\mu\Delta\upomega+\nabla\times\F,
+\label{step3}
+\end{equation}
+which is the first equation in System \eqref{bsol1}. Finally, given the incompressibility of $\V$ and applying a simple vector identity lead to the third equation in System \eqref{bsol1} that is
+\begin{equation}
+-\Delta\V=\nabla\times\upomega.
+\label{step4}
+\end{equation}
+The fundamental solution $\upomega$ to Equation \eqref{step3} with initial profile $\upomega_0$ and force $\nabla\times\F$ is given formally by
+\begin{IEEEeqnarray}{rCl}
+\upomega(\Bf{x},t)&=&(4\pi\mu t)^{-\frac{N}{2}}\int_{\Omega}e^{-\frac{|\Bf{x}-\Bf{y}|^2}{4\mu t}}\nabla\times\V_{0}(\Bf{y})d\Bf{y}\nonumber\\
+&&+\int_0^t(4\pi\mu (t-s))^{-\frac{N}{2}}\int_\Omega e^{-\frac{|\Bf{x}-\Bf{y}|^2}{4\mu (t-s)}}\nabla\times\F(\Y,s)d\Y ds.
+\label{osol1}
+\end{IEEEeqnarray}
+As explained in \cite[Chapter 7]{fritz}, because of the smoothing property of the Gaussian kernel, it is enough to have a contentious data under the integral sign to guarantee that $\upomega\in\Bf{C}^\infty(\overline{\Omega}_t)$, which is what has been already assumed. Given the assumptions on the growth of $\F$ in time and the form of Formula \eqref{osol1}, the solution $\upomega\rightarrow0$ as $t\rightarrow\infty$. Moreover, the continuity of the data, the clear decay in time and the boundedness of $\Omega$ imply that $|\upomega|<C$ in $\overline{\Omega}_t$, which implies actually that $\upomega\in L^2(\Omega)$ for every $t>0$. Uniqueness of $\upomega$ as per Expression \eqref{osol1} is not clear unless we insert the boundary datum $\nabla\times\V^*$ explicitly in Expression \eqref{osol1}. This can be done by introducing the auxiliary variable $\Bf{w}=\upomega-\nabla\times\V^*$ for which one obtains a homogeneous heat equation. Anyhow, the presence of any form of boundary conditions guarantees the uniqueness of $\upomega$. Moreover, since $\upomega$ is actually a derivative of $\V$, then it suffices to show that $\V$ is unique, which is our main concern, to conclude the uniqueness of $\upomega$.
+
+Now, go back to Equation \eqref{step4}. By virtue of our assumptions on the data, the results obtained above for $\upomega$ and the standard theory of elliptic equations one directly concludes that $\V\in \Bf{C}^\infty(\overline{\Omega}_t)$, for more details see \cite[pp. 326-343]{evans}. Such regularity, the boundedness of $\Omega$ and the global decay of $\upomega$ in time imply that $\V$ is bounded in $L^2(\Omega)$ for every $t>0$, which in turn implies the boundedness of the energy of the flow $E(t)$ as defined by Expression \eqref{energyID}. Since $\upomega\in L^2(\Omega)$, then \cite[Proposition 2.16]{majda} can be used to conclude that a formal solution for Equation \eqref{step4} takes the form
+\begin{equation}
+\V(\X,t)=\frac{1}{\omega_N}\int_\Omega\frac{\X-\Y}{|\X-\Y|^N}\times\upomega(\Y,t)d\Y,
+\label{vsol1}
+\end{equation}
+where $\omega_N$ is the area of the unit sphere in $\mathbb{R}^N$. The solution $\V$ can be enforced to take the values $\V^*$ on the boundary in a standard manner by introducing Dirichlet Green's function. We refrain from discussing these details being highly dependent on the choice of the domain. The uniqueness of $\V$ follows by the presence of the boundary condition $\V^*$, for details see \cite{evans,fritz}.
+
+Finally, {\color{black}go back} to Equation \eqref{step2} to solve for $p$. {In this case one only needs to calculate $\nabla p\cdot\vec{\Bf{n}}$ from the main model by knowing the values of $\V_t$, $\Delta \V$ and $\F$ on the boundary. This provides a form of boundary conditions for $p$, which consequently guarantees its uniqueness up to a constant, for details see \cite{fritz}. {\color{black}The infinite differentiability of $p$ follows also from the main model and the fact that $\V\in\Bf{C}^\infty(\overline{\Omega}_t)$ provided, of course, that $\F\in\Bf{C}^\infty(\overline{\Omega}_t)$ as well. If $\F=0$, then $p$ is certainly $C^\infty(\overline{\Omega}_t)$. This completes the proof.}}
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rem}
+As explained in the proof of {\it Theorem \ref{mainthmb}}, the uniqueness of $\upomega$ follows by the ability to define $\V$ uniquely. The order of solving the equations in System \eqref{bsol1} is not really important since none of the quantities $(\V,\upomega,p)$ induces the other; they act simultaneously. Another way of solvability can be introduced by which one can obtain the same results. This can be a topic for a future study.
+\end{rem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The problem of proving the existence of regular and smooth enough solutions for the Navier-Stokes equation in bounded domain was exhaustively investigated as pointed out in the introduction. The real problem was to prove the boundedness of the solution in an unbounded domain, clearly because of the unboundedness of the domain itself. This fact manifests the need to show that the solution's support is bounded in $\mathbb{R}^N$, or equivalently to show that the solution $\V$ decays rapidly as $|\X|\rightarrow\infty$.
+
+The solution obtained in {\it Theorem \ref{mainthmb}} represents a perfect candidate as a solution for Model Equation \eqref{vmodel} in unbounded domains also except for one issue. One needs to prove the boundedness of $\V$ in $L^2(\mathbb{R}^N)$ for every $t>0$ so that the boundedness of the energy $E(t)$ can be claimed, and also to ensure that the solution does indeed vanish as $|\X|\rightarrow\infty$. For $\V$ to be bounded in $L^2(\mathbb{R}^N)$, it should attain a rate of decay, at least, $|\V|\leq C(1+|\X|)^{-(N+\delta)/2}$ for any $\delta>0$. One can argue that some of the results in the literature require a rate of decay higher than that for the surface integrals to vanish; these restrictions can be dropped because these integrals already vanish by virtue of {\it Lemma \ref{compcond}}, see \cite[Lemma 1.5]{majda}. However, this does not mean that rapid rates of decay are not achievable, they are achievable as demonstrated next.
+
+In order to derive such an estimate one goes back to Formula \eqref{vsol1} that represents the fundamental solution for $\V$. If $|\upomega|\leq C$ then it is expected that the outcome of this integral will provide nothing less than a linear rate of growth for $|\V|$, which is a bad answer to the problem in hand. Therefore, Formula \eqref{osol1} shall be used to help us estimate some rates of decay for $\upomega$ and consequently for $\V$ so that boundedness in $L^2(\Omega)$ can be proved for every $t>0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{theorem}[The Domain $\mathbb{R}^N$]
+Suppose all the conditions of {\it Theorem \ref{mainthmb}} are satisfied for $\Omega=\mathbb{R}^N$. Then there exists a classical solution $(\V,\upomega,p)$ for Model Equation \eqref{vmodel} represented by the System \eqref{bsol1} and defined as
+\begin{equation}
+\upomega(\X,t)=h(t)\int_{\mathbb{R}^N}e^{-\frac{|\X-\Y|^2}{4\mu t}}\upomega_0(\Y)d\Y+\int_0^th(t-s)\int_{\mathbb{R}^N}e^{-\frac{|\X-\Y|^2}{4\mu (t-s)}}\Bf{g}(\Y,s)d\Y ds,
+\label{osol2}
+\end{equation}
+and
+\begin{equation}
+\V(\X,t)=\frac{1}{\omega_N}\int_{\mathbb{R}^N}\frac{\X-\Y}{|\X-\Y|^N}\times\upomega(\Y,t)d\Y,
+\label{vsol2}
+\end{equation}
+where $h(t)=(4\pi\mu t)^{-\frac{N}{2}}$, $\Bf{g}=\nabla\times\F$ and $\omega_N$ is the surface area of a unit sphere. The pressure $p$ can be defined from Model Equation \eqref{vmodel} up to a constant where $\nabla p\cdot\vec{\Bf{n}}$ can be specified uniquely in terms of the values of $\V$ and $\F$ on the boundary. Moreover, the energy of the flow $E(t)$ is bounded for every $t>0$ where $\V$ grows at most as $|\V|\sim(1+|\X|)^{-(N+6)/2}$.
+\label{mainthmR}
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+The proof of smoothness and uniqueness is identical to the one introduced in the proof of {\it Theorem \ref{mainthmb}} and it follows by the standard theory of linear second order elliptic and parabolic equations. The focus here will be on proving the boundedness in $L^2(\mathbb{R}^N)$ for both $\upomega$ and $\V$, which necessarily entails an estimation of appropriate decay rates as pointed out in the preceding discussion. Since $\F\in \Bf{C}^1([0,\infty];H^3(\mathbb{R}^N))$, then $\Bf{g}\in \Bf{C}([0,\infty]; {\color{black}H^2}(\mathbb{R}^N))$. {\color{black}By assumption}, $\V_0\in V^{N+2}(\mathbb{R}^N)$ which implies that $\upomega_0\in V^{N+1}(\mathbb{R}^N)$ and since $N\geq2$ for meaningful physical interpretation, then at least $\upomega_0\in V^3(\mathbb{R}^N)$. Hence, $\upomega\in L^2((0,\infty];V^4(\mathbb{R}^N))$ as per the standard theory of linear second order parabolic equations, for details refer to \cite[Theorem 6, p. 386]{evans}.
+
+Now, it is needed to show that $\V$ is bounded in $L^2(\mathbb{R}^N)$ for every $t>0$. There are two ways to show this; in one of them a rough estimate will be provided for the minimum rate of decay of $\V$ given the assumptions on the data.
+
+The first direction depends on the results in \cite[Theorems 3.4 and 3.6]{majda}. In these theorems a regularization technique by mollifiers along with energy estimates were used to prove global in time existence. In particular, \cite[Theorem 3.4]{majda} states that if $\V_0\in V^m$ and $m\geq[N/2]+2$, then there exists a unique continuous solution locally in time such that this is true up to $T\leq C(\|\V\|_m)^{-1}$, which coincides with the assumptions on $\V_0$. The local existence of a unique continuous solution was extended to a global in time existence in \cite[Theorem 3.6]{majda} given that
+\[
+\int_0^T|\upomega(\X,t)|_{L^\infty(\Omega_t)}dt\leq C
+\]
+and such that $\V\in \Bf{C}^1((0,T];\Bf{C}^2(\Omega)\cap V^m(\Omega))$. Since $\upomega_0$ and $\Bf{g}$ are bounded in $L^2(\mathbb{R}^N)$ for every $t>0$, then it follows that there exists a ball $B\subset\mathbb{R}^N$ such that the supports of $\Bf{g}$ and $\upomega_0$ are entirely inside $B_t$ where $B_t=B\times[0,\infty]$. Hence, the integrals in Formula \eqref{osol2} {\color{black}can be restricted} to the ball $B$, apply H\"older's inequality, maximize the exponential term which is bounded for every $\X,\Y\in B$ and for every $t>0$, and with some estimation procedures it becomes easy to find an estimate of the form $|\upomega(\X,t)|\leq C h(t)$ in the whole of $\mathbb{R}^N$ and for every $t>0$. Since $h(t)$ is a decreasing function in time then by assuming a simple scale of time one obtains
+\[
+\int_0^\infty|\upomega(\X,t)|_{L^\infty(\overline{\Omega}_t)}dt\leq C\int_1^\infty h(\tau)d\tau\leq C.
+\]
+It follows that all the conditions of \cite[Theorem 3.4, Theorem 3.6]{majda} are satisfied such that $\V$ exists globally in time and such that $\V\in V^{N+2}(\mathbb{R}^N)$ for every $t>0$, which implies the boundedness of the energy $E(t)$ for every $t>0$ as well.
+
+The second way is trying to get an estimate for $\V$ in terms of $|\X|$ to confirm the boundedness in $L^2(\mathbb{R}^N)$. Consider the following argument: fix $t$ in Expression \eqref{osol2}, calculate $\nabla\upomega$, which is in $L^2(\mathbb{R}^N)$ for every $t>0$ because $\upomega\in V^4(\Omega)$. Take the absolute value of both sides, perform some manipulation to the integrands, use $\X\cdot\Y\leq|\X||\Y|$ and maximize the time integral (the integrand is a decreasing function in time) so that one finally gets the term with the highest power for $|\X|$ as follows
+\begin{IEEEeqnarray}{rCl}
+\left|\nabla \upomega\right|&\leq& H(t)\int_{B}|\X|\left(\left|1+\frac{|\Y|}{|\X|}\right|^2\right)^{\frac{1}{2}}e^{-\frac{|\X-\Y|^2}{4\mu t}}(|\upomega_0(\Y)|_{L^\infty(B)}+|\Bf{g}(\Y,t)|_{L^\infty(B_t)})d\Y\nonumber\\
+&\leq&H(t)\rm{M}(|\X|)|\X| C(|B|,|\upomega_0|_{L^\infty(B)},|\Bf{g}|_{L^\infty(B_t)})\nonumber\\
+&\leq& C \rm{M}(|\X|)|\X|,\nonumber
+\end{IEEEeqnarray}
+where $\rm{M}(|\X|)$ is the collection of every possible appearance of any power of $|\X|$ after the integration. Since $\nabla\upomega$ is in $L^2(\mathbb{R}^N)$ as pointed out, then to obtain a decreasing integrand when calculating the $L^2$-norm of this derivative it is necessary that $\rm{M}(|\X|)$ is decreasing in $|\X|$ such that it is at least $\rm{M}(|\X|)\sim(1+|\X|)^{-\frac{N+2+\delta}{2}}$ for some $\delta>0$. But $\upomega$ is in $L^2(\mathbb{R}^N)$ as well, and the integrands of the above estimate are the same except for the terms with positive powers of $|\X|$. That is to say that $|\upomega|\leq C \rm{M}(|\X|)\sim(1+|\X|)^{-\frac{N+2+\delta}{2}}$. Incorporate this estimate in Expression \eqref{vsol2} of the solution $\V$ and one can readily see that $|\V|\sim(1+|\X|)^{-\frac{N+\delta}{2}}$ as desired, which in turn confirms the boundedness of the energy $E(t)$ for every $t>0$ and implies the decay of $\V$ as $|\X|\rightarrow\infty$.
+
+However, since $\upomega\in V^4(\mathbb{R}^N)$, then we actually have $D^4\upomega\in L^2(\mathbb{R}^N)$ for every $t>0$. This means that we can differentiate Formula \eqref{osol2} four times and repeat the same argument as above to conclude that we actually have $\rm{M}(|\X|)\sim(1+|\X|)^{-\frac{N+8+\delta}{2}}$ which in turn leads to $|\V|\sim(1+|\X|)^{-\frac{N+6+\delta}{2}}$ and this completes the proof.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\begin{rem}
+Better estimates for the decay of $\V$ can be obtained by repeating the same procedure described above for higher order derivatives of $\upomega$ which, of course, entails higher assumptions on the data so that we can claim the boundedness of the considered derivative apriori. On the other hand, the assumptions on the smoothness of the forcing term $\F$ can be relaxed. It is enough to assume that $\F\in\Bf{C}^1([0,\infty];\Bf{C}^1(\mathbb{R}^N)\cap H^1(\mathbb{R}^N))$ so that one obtains $\Bf{g}\in\Bf{C}([0,\infty];L^2(\mathbb{R}^N))$, which is sufficient to conclude that $\upomega\in L^2((0,\infty];V^2(\mathbb{R}^N))$. The boundedness of $\nabla\upomega$ in $L^2(\mathbb{R}^N)$ is enough to deduce a sufficient decay estimate for $\V$ as shown above. The introduced assumptions were chosen for consistency with the standard theory and the Embedding Theorem, and in the same time to illustrate the estimation procedure. For more information review \cite[pp. 382-386]{evans}.
+\end{rem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We managed to prove that our solution is indeed {\Bf a} classical solution of Model Equation \eqref{vmodel}. Here come some important questions, what if there exists another solution in a more general form? Moreover, does the choice of the domain or the choice of the boundary data play a role in the uniqueness of the solution? The answer to these questions is addressed by the statement of the next theorem.
+\begin{theorem}[Uniqueness]
+Let $\Omega\subseteq\mathbb{R}^N$ be an arbitrary domain. Suppose $\V_0$, $\V^*$ and $\F$ are satisfying Conditions \eqref{initialdata}, \eqref{bounddata} and \eqref{forcedata} respectively. Then {\it Claim \ref{claim1}} is true and the unique classical solution of Model Equation \eqref{vmodel} is in the form $\V(\X,t)=\psi(\X,t)\Bf{u}(t)$. This solution is defined as per {\it Theorems \ref{mainthmb}} and \ref{mainthmR}.
+\label{unique}
+\end{theorem}
+\begin{proof}
+The proof here depends on our results in {\it Theorems \ref{mainthmb}} and {\it \ref{mainthmR}}, and also on \cite[Theorems 3.4 and 3.6]{majda}. By virtue of the assumptions on the data and our results in {\it Theorems \ref{mainthmb}} and {\it \ref{mainthmR}}, it is clear that our solution $\V$ satisfies all the conditions in \cite{majda} for every $t\in(0,\infty]$.
+
+Assume that there exists a more general solution than the proposed one and denote it by $\V^g$. Such solution should definitely inherit the smoothness proved in \cite{majda} as well. That is to say that $\V^g\in \Bf{C}^1((0,\infty];\Bf{C}^2\cap V^m)$ and such that $(\V^g,\upomega^g,p^g)$ is the triad solution of Model Equation \eqref{vmodel} with boundary datum $\V^*$ and initial profile $\V_0$. Let $\Bf{w}=\V-\V^g$ and let $q=p-p^g$. Hence, $\Bf{w}$ has zero boundary and initial data and it obeys the equation
+\begin{equation}
+{\color{black}\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q=(\V^g\cdot\nabla)\V^g.}
+\label{uniqID0}
+\end{equation}
+Dot product the above equation by $\V^g$ and integrate by parts over any arbitrary domain $\Omega$ to get
+\begin{IEEEeqnarray}{rCl}
+\int_\Omega\V^g\cdot(\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q)d\X&=&\frac{1}{2}\int_{\partial\Omega}|\V^g|^2\V^g\cdot\vec{\Bf{n}}d\X_{N-1}\nonumber\\
+&=&\frac{1}{2}\int_{\partial\Omega}|\V|^2\V\cdot\vec{\Bf{n}} d\X_{N-1}=0,
+\label{uniqID1}
+\end{IEEEeqnarray}
+where we used the Divergence theorem in the right hand side, the facts that $\nabla\cdot\V^g=0$ and that $\V^g=\V^*=\V$ on the boundary, and the results of {\it Lemma \ref{compcond}}. Now, recalling that $\nabla\cdot\upomega^g=0$ and using the vector identity
+\begin{equation}
+\nabla|\V^g|^2=2(\V^g\cdot\nabla)\V^g+2\V^g\times\upomega^g,
+\label{vecIDun}
+\end{equation}
+one can dot product Equation \eqref{uniqID0} by $\upomega^g$ and integrate as above to get
+\begin{IEEEeqnarray}{rCl}
+\int_\Omega\upomega^g\cdot(\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q)d\X&=&\frac{1}{2}\int_{\partial\Omega}|\V^g|^2\upomega^g\cdot\vec{\Bf{n}}d\X_{N-1}\nonumber\\
+&=&\frac{1}{2}\int_{\partial\Omega}|\V^*|^2\nabla\times\V^*\cdot\vec{\Bf{n}} d\X_{N-1}\nonumber\\
+&=&\frac{1}{2}\int_{\partial\Omega}|\V|^2\upomega \cdot\vec{\Bf{n}} d\X_{N-1}\nonumber\\
+&=&0,
+\label{uniqID2}
+\end{IEEEeqnarray}
+where {\it Lemma \ref{compcond}} is used again. Identities \eqref{uniqID1} and \eqref{uniqID2} imply one of three possibilities.  Either $\V^g=\upomega^g=0$ which is excluded for being trivial, or $\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q=0$ almost everywhere. The third possibility is $\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q$ being orthogonal to the space spanned by $\V^g$ and $\upomega^g$, which by Equation \eqref{uniqID0} implies that $(\V^g\cdot\nabla)\V^g$ is orthogonal to $\upomega^g$ and $\V^g$.
+
+Let us start with $\Bf{w}_t-\mu\Delta \Bf{w}+\nabla q=0$ almost everywhere. Multiply this equation by $\Bf{w}$, integrate by parts over $\Omega$, employ the Divergence theorem and recall that $\Bf{w}=0$ on $\partial\Omega$ to get
+\[
+\frac{1}{2}\frac{d}{dt}\int_\Omega|\Bf{w}|^2d\X+\mu\int_\Omega|\nabla\Bf{w}|^2d\X=-\int_{\partial\Omega}q\Bf{w}\cdot\vec{\Bf{n}}\,d\X_{N-1}=0.
+\]
+This readily implies that $\Bf{w}=0$ almost everywhere. But by the results obtained for $\V$ and $\V^g$, one concludes that at least $\Bf{w}\in\Bf{C}^2(\overline{\Omega})$ which implies that $\Bf{w}$ is identically zero. Hence, the solution $\V$ is the unique solution for Model Equation \eqref{vmodel} in this case.
+
+Now, if $\V^g$ and $\upomega^g$ are orthogonal to $(\V^g\cdot\nabla)\V^g$, then by Identity \eqref{vecIDun} we deduce that $\nabla|\V^g|^2$ is orthogonal to the space spanned by $\V^g$ and $\upomega^g$ everywhere, which is equivalent to the nature of {\color{black}the} solution $\V$. This means that $\nabla|\V|^2$ and $\nabla|\V^g|^2$ are parallel to each other on the boundary. Since both solutions coincide at the boundary and both are extended continuously to the interior of the domain, then it is not hard to conclude that $\V^g=\V$ everywhere, which is the aim of this proof. Assume not. Let $\uptheta=\upomega-\upomega^g$ so that the difference equation for $\uptheta$ takes the form
+\begin{equation}
+\uptheta_t-\mu\Delta\uptheta=(\V^g\cdot\nabla)\upomega^g-(\upomega^g\cdot\nabla)\V^g.
+\label{uniqIDw1}
+\end{equation}
+where $(\upomega^g\cdot\nabla)\V^g-(\V^g\cdot\nabla)\upomega^g=-\nabla\times (\V^g\cdot\nabla)\V^g$. Use the vector identity
+\[
+\nabla(\V^g\cdot\upomega^g)=(\nabla\V^g)^T\upomega^g+(\nabla\upomega^g)^T\V^g,
+\]
+and given the incompressibility of $\V^g$ one also has
+\[
+\nabla\upomega^g\upomega^g=\frac{1}{2}\nabla|\upomega^g|^2-\upomega^g\times(\nabla\times\upomega^g)=\frac{1}{2}\nabla|\upomega^g|^2+\upomega^g\times\Delta\V^g.
+\]
+Use these two identities, bearing in mind the incompressibility, to find that
+\begin{IEEEeqnarray}{rCl}
+\V^g\cdot(\nabla\upomega^g\V^g-\nabla\V^g\upomega^g)&=&(\nabla\upomega)^T\V^g\cdot\V^g-\frac{1}{2}\nabla|\V^g|^2\cdot\upomega^g\nonumber\\
+&=&\nabla(\V^g\cdot\upomega^g)\cdot\V^g-(\nabla\V^g)^T\upomega^g\cdot\V^g-\frac{1}{2}\nabla|\V^g|^2\cdot\upomega^g\nonumber\\
+&=&\nabla\cdot((\V^g\cdot\upomega^g)\V^g-\frac{1}{2}|\V^g|^2\upomega^g)-\nabla\V^g\V^g\cdot\upomega^g\nonumber\\
+&=&\nabla\cdot((\V^g\cdot\upomega^g)\V^g-\frac{1}{2}|\V^g|^2\upomega^g)\nonumber\\
+&&-\frac{1}{2}\nabla|\V^g|^2\cdot\upomega^g+(\V^g\times\upomega^g)\cdot\upomega^g\nonumber\\
+&=&\nabla\cdot((\V^g\cdot\upomega^g)\V^g-|\V^g|^2\upomega^g)\nonumber\\
+&=&\nabla\cdot G_1(\V^g,\upomega^g).
+\label{uniqIDw2}
+\end{IEEEeqnarray}
+Now recall that we are discussing the possibility in which $\nabla|\V^g|^2$ is orthogonal to $\V^g$ and $\upomega^g$  such that $C\nabla|\V^g|^2=(\V^g\times\upomega^g)$. Following the same steps as above {\color{black}one can write}
+\begin{IEEEeqnarray}{rCl}
+\upomega^g\cdot(\nabla\upomega^g\V^g-\nabla\V^g\upomega^g)&=&\nabla\cdot(|\upomega^g|^2\V^g-(\V^g\cdot\upomega^g)\upomega^g)-(\upomega^g\times\Delta\V^g)\cdot\V^g\nonumber\\
+&=&\nabla\cdot(|\upomega^g|^2\V^g-(\V^g\cdot\upomega^g)\upomega^g)-(\V^g\times\upomega^g)\cdot\Delta\V^g\nonumber\\
+&=&\nabla\cdot(|\upomega^g|^2\V^g-(\V^g\cdot\upomega^g)\upomega^g)-C\nabla|\V^g|^2\cdot\Delta\V^g\nonumber\\
+&=&\nabla\cdot(|\upomega^g|^2\V^g-(\V^g\cdot\upomega^g)\upomega^g-C|\V^g|^2\Delta\V^g)\nonumber\\
+&=&\nabla\cdot G_2(\V^g,\upomega^g).
+\label{uniqIDw3}
+\end{IEEEeqnarray}
+Now, dot product Equation \eqref{uniqIDw1} by $\V^g$, use Identity \eqref{uniqIDw2}, integrate over $\Omega$ and use the Divergence theorem to reach
+\begin{equation}
+\int_\Omega\V^g\cdot(\uptheta_t-\mu\Delta\uptheta)d\X=\int_{\partial\Omega}G_1(\V^g,\upomega^g)\cdot\vec{\Bf{n}}\,d\X_{N-1}=\int_{\partial\Omega}G_1(\V,\upomega)\cdot\vec{\Bf{n}}\,d\X_{N-1}.
+\label{uniqIDw4}
+\end{equation}
+Also dot product Equation \eqref{uniqIDw1} by $\upomega^g$, use Identity \eqref{uniqIDw3}, integrate over $\Omega$ and use the Divergence theorem to get
+\begin{equation}
+\int_\Omega\upomega^g\cdot(\uptheta_t-\mu\Delta\uptheta)d\X=\int_{\partial\Omega}G_2(\V^g,\upomega^g)\cdot\vec{\Bf{n}}\,d\X_{N-1}=\int_{\partial\Omega}G_2(\V,\upomega)\cdot\vec{\Bf{n}}\,d\X_{N-1}.
+\label{uniqIDw5}
+\end{equation}
+Now, reverse the Divergence theorem in the surface integrals that include values of $\V$ and $\upomega$ and reverse all the steps made to conclude $G_1$ and $G_2$ to obtain identities in the form
+\begin{equation}
+\int_\Omega\V^g\cdot(\uptheta_t-\mu\Delta\uptheta)d\X=\int_{\Omega}\V\cdot\nabla\times((\V\cdot\nabla)\V) d\X=0,
+\label{uniqIDw6}
+\end{equation}
+and similarly
+\begin{equation}
+\int_\Omega\upomega^g\cdot(\uptheta_t-\mu\Delta\uptheta)d\X=\int_{\Omega}\upomega\cdot\nabla\times((\V\cdot\nabla)\V) d\X=0.
+\label{uniqIDw7}
+\end{equation}
+Now, there are three other possibilities. The trivial solution; that is $\V^g=\upomega^g=0$ and it is excluded. Another one is $\uptheta_t-\mu\Delta\uptheta=0$ and this one is equivalent to $\Bf{w}_t-\mu\Delta\Bf{w}+\nabla q=0$ because the uniqueness of $\V$ implies the uniqueness of $\upomega$ and vice versa. It remains that $\nabla\times((\V^g\cdot\nabla)\V^g)$ is orthogonal to the space spanned by $\V^g$ and $\upomega^g$. But we already have $(\V^g\cdot\nabla)\V^g$ orthogonal to $\V^g$ and $\upomega^g$, which implies that $(\V^g\cdot\nabla)\V^g$ and its rotation ($\Bf{curl}$) are parallel to each other.
+
+By definition, the $\Bf{curl}$ operator is the unique vector field for which $(\nabla \Bf{s}-\nabla\Bf{s}^T)\Bf{a}=(\nabla\times\Bf{s})\times \Bf{a}$ for every vector field $\Bf{a}$ \cite[p. 32]{gurtin}. If $\Bf{s}=\lambda(\nabla\times\Bf{s})$, then let $\Bf{a}=\Bf{s}=\lambda\nabla\times\Bf{s}$ to get $\nabla\Bf{s}=\nabla\Bf{s}^T$ which in turn implies that $\nabla\times\Bf{s}=0$ then $\Bf{s}=0$ as well. Hence, it is necessary that $(\V^g\cdot\nabla)\V^g=0$ which implies that $\V^g=\V$. This completes the proof.
+\end{proof}
+\begin{rem}
+In the proof of uniqueness one can argue that the statement of the proof was given in the sense of classical solutions, and such that there still exists another solution in a weaker form. While this may sound true, but in fact it is not. The basic idea of the proof is based on using the coincidence on the boundary and then moving back to the interior. Assuming the existence of a weaker solution does not change the fact that it is going to coincide with the proposed one on the boundary. However, further investigation on this specific point will be introduced in a future study.
+\end{rem}
+\section{Conclusions and Suggestions}
+A class of possible solutions for the incompressible Navier-Stokes equation in bounded and unbounded regions of $\mathbb{R}^N$ is proposed. It was demonstrated that for such class of vector fields the flux of the energy of the flow is orthogonal to the space spanned by $\V$ and its associated rotation $\upomega$. It was also proved that $\V$ and $\upomega$ are tangential to the boundary such that $\V\cdot\vec{\Bf{n}}=\upomega\cdot\vec{\Bf{n}}=0$.
+
+An investigation of the validity of this class of vector fields as a candidate for a solution to the incompressible Navier-Stokes equation was carried out in both bounded and unbounded domains. Given plausible assumptions on the data and a forcing term in the case of unbounded domains, it turned out that this class of solutions represents perfectly a classical solution of the problem. A verification was established for the infinite differentiability, the uniqueness and the boundedness of the energy in appropriate spaces in light of well known and standard theories. An appropriate estimate was also given for the minimum rate of decay of the solution $\V$ as $|\X|\rightarrow\infty$. Moreover, global existence in time and the corresponding rate of decay were quite obvious in the deduced formulas.
+
+Finally, it was proved that this class of solutions represents actually the unique classical solution of the incompressible Navier-Stokes equation. In light of the non-convective nature of the proposed solution and the uniqueness argument under arbitrary settings the incompressible Navier-Stokes equation can safely be reduced to a linear equation. This point is quite interesting and it motivates further investigations on a possible relation between incompressibility and convection in fluid mechanics.
+%%%%%%%%%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%
+\section*{Acknowledgement}
+\addcontentsline{toc}{section}{Acknowledgement}
+Sincere thanks to the members of JAMP for their professional performance, and special thanks to managing editor {\it Hellen XU} for a rare attitude of high quality.
+%%%%%%%%%%%%%%%%%%  Bibliography %%%%%%%%%%%%%%%%%%%%%
+\def\cprime{$'$} \def\cprime{$'$}
+{\color{Brown}\begin{thebibliography}{8}
+\addcontentsline{toc}{section}{References}
+{\color{black}
+
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Book
+\bibitem[1]{gurtin}
+\bibinfo{author}{Gurtin, M.} \bibinfo{year}{(1982)} \bibinfo{title}{An Introduction to Continuum
+  Mechanics}, Mathematics in Science and Engineering,
+  \bibinfo{publisher}{Academic Press}, Cambridge.
+%Type = Book
+\bibitem[2]{kambeb}
+\bibinfo{author}{Kambe, T.} \bibinfo{year}{(2007)} \bibinfo{title}{Elementary Fluid Mechanics},
+  \bibinfo{publisher}{World Scientific Publishing},
+  \bibinfo{address}{Singapore}.
+%Type = Article
+\bibitem[3]{kambe1}
+\bibinfo{author}{Kambe, T.} \bibinfo{year}{(2010)}
+\newblock \bibinfo{title}{A New Formulation of Equations of Compressible Fluids
+  by Analogy with Maxwell's Equations},
+\newblock \bibinfo{journal}{Fluid Dynamics Research}, \bibinfo{volume}{{\bf 42}}. \bibinfo{doi}{\url{https://doi.org/10.1088/0169-5983/42/5/055502}}
+%Type = Article
+\bibitem[4]{kambe2}
+\bibinfo{author}{Kambe, T.} \bibinfo{year}{(1983)}
+\newblock \bibinfo{title}{Axisymmetric Vortex Solution of Navier-Stokes
+  Equation},
+\newblock \bibinfo{journal}{Journal of Physical Society of Japan},
+  \bibinfo{volume}{{\bf 53}},  \bibinfo{pages}{13--15}. \bibinfo{doi}{\url{https://doi.org/10.1143/JPSJ.53.13}}
+%Type = Book
+\bibitem[5]{ladyF1}
+\bibinfo{author}{Ladyzhenskaya, O.} \bibinfo{year}{(1969)} \bibinfo{title}{The Mathematical Theory of
+  Viscous Incompressible Flow}, Translated from the Russian by Richard A.
+  Silverman, Mathematics and its Applications, 2nd Edition,
+  \bibinfo{publisher}{Gordon and Breach}.
+%Type = Book
+\bibitem[6]{galdi}
+\bibinfo{author}{Galdi, G.P.} \bibinfo{year}{(2011)} \bibinfo{title}{An Introduction to the
+  Mathematical Theory of the Navier-Stokes Equations}, Springer Monographs in
+  Mathematics, \bibinfo{publisher}{Springer New York}.
+%Type = Book
+\bibitem[7]{majda}
+\bibinfo{author}{Majda, A.J.} and \bibinfo{author}{Bertozzi, L.} \bibinfo{year}{(2001)}   \bibinfo{title}{Vorticity and Incompressible Flow},
+  \bibinfo{publisher}{Cambridge Texts in Applied Mathematics, Cambridge University Press, Cambridge}. \bibinfo{doi}{\url{https://doi.org/10.1017/CBO9780511613203}}
+%Type = Article
+\bibitem[8]{tao}
+\bibinfo{author}{Tao, T.} \bibinfo{year}{(2016)} \bibinfo{title}{Finite Time Blowup for an Averaged Three-Dimensional
+  Navier-Stokes Equation},
+\newblock \bibinfo{journal}{Journal of American Mathematical Society}, \bibinfo{volume}{{\bf 29}}, \bibinfo{pages}{601--674}. \bibinfo{doi}{\url{https://doi.org/10.1090/jams/838}}
+%Type = Article
+\bibitem[9]{consta1}
+\bibinfo{author}{Constantin, P.} and \bibinfo{author}{Fefferman, C.} \bibinfo{year}{(1993)} \bibinfo{title}{Direction of Vorticity and the Problem of Global
+  Regularity for the Navier-Stokes Equations},
+\newblock \bibinfo{journal}{Indiana University Mathematics Journal}, \bibinfo{volume}{{\bf 42}},
+   \bibinfo{pages}{775--789}. \bibinfo{doi}{\url{https://doi.org/10.1512/iumj.1993.42.42034}}
+%Type = Article
+\bibitem[10]{consta2}
+\bibinfo{author}{Constantin, P.} \bibinfo{year}{(1990)} \bibinfo{title}{Navier-Stokes Equations and Area of Interfaces},
+\newblock \bibinfo{journal}{Communications in Mathematical Physics},
+  \bibinfo{volume}{{\bf 129}},  \bibinfo{pages}{241--266}. \bibinfo{doi}{\url{https://doi.org/10.1007/BF02096982}}
+%Type = Article
+\bibitem[11]{consta3}
+\bibinfo{author}{Constantin, P.} \bibinfo{year}{(2001)} \bibinfo{title}{Some Open Problems and Research Directions in the
+  Mathematical Study of Fluid Dynamics},
+\newblock \bibinfo{journal}{Mathematics Unlimited-2001 and Beyond, Springer
+  Verlag, Berlin},  \bibinfo{pages}{353--360}.
+%Type = Article
+\bibitem[12]{caf}
+\bibinfo{author}{Caffarelli, L.} and \bibinfo{author}{Kohn, R.} and
+  \bibinfo{author}{Nirenberg, L.} \bibinfo{year}{(1982)} \bibinfo{title}{Partial Regularity of Suitable Weak Solutions of the
+  Navier-Stokes Equations},
+\newblock \bibinfo{journal}{Communications on Pure and Applied Mathematics}, \bibinfo{volume}{{\bf 35}},
+   \bibinfo{pages}{771--831}. \bibinfo{doi}{\url{https://doi.org/10.1002/cpa.3160350604}}
+%Type = Book
+\bibitem[13]{evans}
+\bibinfo{author}{Evans, L.} \bibinfo{year}{(2010)} \bibinfo{title}{Partial Differential Equations}, \bibinfo{publisher}{Graduate Studies in Mathematics, American Mathematical Society, 2nd Edition}, \bibinfo{volume}{{\bf 19}}. \bibinfo{doi}{\url{https://doi.org/10.1090/gsm/019}}
+%Type = Book
+\bibitem[14]{fritz}
+\bibinfo{author}{John, F.} \bibinfo{year}{(1978)} \bibinfo{title}{Partial Differential Equations,
+  {V}ol. 1, 4th Edition}, Applied Mathematical Sciences, \bibinfo{publisher}{Springer US, New York}. \bibinfo{doi}{\url{https://doi.org/10.1007/978-1-4684-0059-5}}
+}
+\end{thebibliography}
+}
+\end{document}
