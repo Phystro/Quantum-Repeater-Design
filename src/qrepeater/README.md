@@ -14,6 +14,14 @@ Ref: [Design of a Quantum-Repeater using Quantum Circuits and Benchmarking Its P
     - two adjacent nodes with high fidelity qubits undergo swapping to produce a longer link.
 4. If the destination is yet; the operatiosn from Step $2$ and Step $3$ are repeated sequentially until destination node and sender's node are linked.
 
+## Quantum Repeater Mechanics
+
+One quantum repeater is needed for every two parties communicating - a two part channel - fragmented omce into two parts.
+
+Fragment the channel twice, you get three parts. (p = f + 1). Consequently, two quantum repeaters.
+
+Each quantum repeater uses 4 qubits, 2 are memeory qubits, 2 are swap channels represented as qubits. Three entanglement generators ate needed. 
+
 ## Quantum Repeater Architecture
 
 Below os the circuit implementation of the quantum repeater circuit architecture.
